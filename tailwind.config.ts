@@ -32,6 +32,10 @@ const config: Config = {
         "clr-gold": "hsla(var(--cyan))",
         "clr-orange": "hsla(var(--cyan))",
       },
+      backgroundImage: {
+        "landing-page-pattern": "url('/illustration-authentication.svg')",
+        "footer-texture": "url('/img/footer-texture.png')",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
