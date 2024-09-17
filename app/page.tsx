@@ -1,11 +1,11 @@
-import { LandingPageImage, LogoLarge } from "@lib/images";
+import { LogoLarge } from "@lib/images";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <section className="flex h-full max-h-[920px] w-full gap-5 bg-green-100">
       <div className="h-full w-full max-w-[40%] overflow-hidden rounded-lg bg-yellow-200">
-        <div className="bg-landing-page-pattern hidden size-full flex-col justify-between bg-cover bg-bottom bg-no-repeat p-10 text-white lg:flex">
+        <div className="hidden size-full flex-col justify-between bg-landing-page-pattern bg-cover bg-bottom bg-no-repeat p-10 text-white lg:flex">
           <div>
             <LogoLarge />
           </div>
