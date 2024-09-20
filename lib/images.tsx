@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+// most likely not needed
 export const LandingPageImage = () => {
   return (
     <Image
