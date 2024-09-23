@@ -3,11 +3,6 @@ import "@styles/globals.css";
 import { publicSans } from "../fonts/fonts";
 import { LogoLarge } from "@lib/images";
 
-// export const metadata: Metadata = {
-//   title: "Personal Finance App",
-//   description: "Frontend Mentor challenge to build a Personal Finance App",
-// };
-
 //! Note: when this is a nested layout, no need to start with HTML and Body tags
 export default async function Layout({
   children,
