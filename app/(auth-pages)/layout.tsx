@@ -1,6 +1,3 @@
-import type { Metadata } from "next";
-import "@styles/globals.css";
-import { publicSans } from "../fonts/fonts";
 import { LogoLarge } from "@lib/images";
 
 //! Note: when this is a nested layout, no need to start with HTML and Body tags
