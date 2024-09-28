@@ -43,7 +43,6 @@ export default function SignUp() {
   );
 }
 
-//.test
 //! show/hide password
 // ("use client");
 
