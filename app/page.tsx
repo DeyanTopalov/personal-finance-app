@@ -1,6 +1,7 @@
 import { LogoLarge } from "@lib/images";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
+import SignInFormRHF from "@components/CustomInputField/signin-form-rhf";
 
 export default function Home() {
   return (
@@ -40,6 +41,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* <SignInFormRHF /> */}
     </section>
   );
 }
