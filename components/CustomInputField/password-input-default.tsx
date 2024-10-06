@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 
 //* Check the signin-form-default.tsx for example usage of this component
 
-//test
 interface PasswordInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
