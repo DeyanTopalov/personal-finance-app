@@ -8,8 +8,6 @@ export const metadata: Metadata = {
   description: "Frontend Mentor challenge to build a Personal Finance App",
 };
 
-// test
-
 // export default function RootLayout({
 //   children,
 // }: Readonly<{
