@@ -2,13 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
-
 
 /* Install Prettier for auto class sorting */
 /* [1] npm install -D prettier-plugin-tailwindcss */
@@ -18,8 +16,6 @@
         "plugins": ["prettier-plugin-tailwindcss"]
       } */
 /* [4] If it is not working - first try relaunching VS code */
-
-
 
 /* CSS Variables based on project design */
 
@@ -51,7 +47,6 @@
     --army-green: 83, 20%, 47%;
     --gold: 47, 50%, 59%;
     --orange: 18, 47%, 52%;
-
   }
 }
 

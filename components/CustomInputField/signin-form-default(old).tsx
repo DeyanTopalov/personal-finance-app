@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import PasswordInputDefault from "./password-input-default";
+import PasswordInputDefault from "./password-input-default(old)";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

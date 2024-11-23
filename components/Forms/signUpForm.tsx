@@ -5,7 +5,7 @@ import { signup } from "@app/actions";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
 import { useFormState } from "react-dom";
-
+import { PasswordInput } from "./PasswordInput";
 const SignUpForm = () => {
   const [state, formAction] = useFormState(signup, {
     errors: {},
@@ -64,8 +64,7 @@ const SignUpForm = () => {
         <Label htmlFor="password" className="text-preset-5-bold">
           Password
         </Label>
-        <Input
-          type="text"
+        <PasswordInput
           name="password"
           id="password"
           aria-describedby={
