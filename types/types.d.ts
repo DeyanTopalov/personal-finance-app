@@ -13,3 +13,12 @@ type Step = {
   description: string;
   fields: Array<keyof TFormtSchema>;
 };
+
+type SignupState = {
+  errors?: {
+    name?: string[];
+    email?: string[];
+    password?: string[];
+  };
+  message?: string;
+};
