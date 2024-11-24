@@ -2,7 +2,7 @@
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Button } from "@components/ui/button";
+import { SubmitButton } from "./SubmitButton";
 import Link from "next/link";
 import { useFormState } from "react-dom";
 import { PasswordInput } from "./PasswordInput";
@@ -60,7 +60,11 @@ const SignInForm = () => {
             </p>
           )}
         </div>
-        <Button className="mt-8 w-full">Sign In</Button>
+        <SubmitButton
+          defaultText="Sign in"
+          pendingText="Signing in..."
+          className="my-8 w-full"
+        />
         <div
           role="alert"
           aria-live="polite"

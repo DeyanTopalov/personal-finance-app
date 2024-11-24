@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@styles/globals.css";
 import { publicSans } from "./fonts/fonts";
-import { LogoLarge } from "@lib/images";
 
 export const metadata: Metadata = {
   title: "Personal Finance App",

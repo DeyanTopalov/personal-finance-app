@@ -66,10 +66,23 @@ export async function signup(prevState: SignupState, formData: FormData) {
 
   if (error) {
     return {
-      message: "Failed to create account",
+      message: "Unable to create account. Please try again later.",
+      status: "error",
     };
   }
 
-  revalidatePath("/", "layout");
-  redirect("/");
+  // Check if a new user was actually created
+  if (!data.user || data.user.identities?.length === 0) {
+    return {
+      message:
+        "Error encountered. Please check if you already have an account with this email or try a different one.",
+      status: "error",
+    };
+  }
+
+  return {
+    message:
+      "Account created successfully! Please check your email to verify your account.",
+    status: "success",
+  };
 }
