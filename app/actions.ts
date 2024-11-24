@@ -1,14 +1,12 @@
 "use server";
 
-import { signupSchema } from "@/lib/schema";
-import { loginSchema } from "@/lib/schema";
-
+import { signupSchema, loginSchema } from "@/lib/schema";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/utils/supabase/server";
 
-export async function emailLogin(formData: FormData) {
+export async function emailLogin(prevState: LoginState, formData: FormData) {
   const supabase = await createClient();
 
   const validatedFields = loginSchema.safeParse({
@@ -17,7 +15,9 @@ export async function emailLogin(formData: FormData) {
   });
 
   if (!validatedFields.success) {
-    return { error: validatedFields.error.flatten() };
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
   }
 
   const { error } = await supabase.auth.signInWithPassword({
@@ -26,13 +26,19 @@ export async function emailLogin(formData: FormData) {
   });
 
   if (error) {
-    redirect("/error");
+    if (error.status === 400) {
+      return {
+        message: "Incorrect email or password",
+      };
+    }
+    return {
+      message: "Unable to connect. Please try again later.",
+    };
   }
 
   revalidatePath("/", "layout");
   redirect("/");
 }
-
 export async function signup(prevState: SignupState, formData: FormData) {
   const supabase = await createClient();
 

@@ -22,3 +22,11 @@ type SignupState = {
   };
   message?: string;
 };
+
+type LoginState = {
+  errors?: {
+    email?: string[];
+    password?: string[];
+  };
+  message?: string;
+};

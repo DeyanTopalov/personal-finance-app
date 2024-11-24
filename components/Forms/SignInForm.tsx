@@ -1,44 +1,25 @@
 "use client";
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signup } from "@app/actions";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
 import { useFormState } from "react-dom";
 import { PasswordInput } from "./PasswordInput";
-const SignUpForm = () => {
-  const [state, formAction] = useFormState(signup, {
+import { emailLogin } from "@app/actions";
+
+const SignInForm = () => {
+  const [state, formAction] = useFormState(emailLogin, {
     errors: {},
     message: undefined,
   });
-
   return (
     <>
       <form
         action={formAction}
         className="w-full max-w-[35rem] rounded-lg bg-white px-5 py-6 text-left md:px-8 md:py-8"
       >
-        <h1 className="text-preset-1 mb-8">Sign Up</h1>
-        <Label htmlFor="name" className="text-preset-5-bold">
-          Name
-        </Label>
-        <Input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Joey Tribbiani"
-          aria-describedby={state.errors?.name ? "name-error" : undefined}
-        />
-        <div
-          id="name-error"
-          aria-live="polite"
-          aria-atomic="true"
-          className="h-4"
-        >
-          {state.errors?.name && (
-            <p className="text-preset-5 text-red-500">{state.errors.name[0]}</p>
-          )}
-        </div>
+        <h1 className="text-preset-1 mb-8">Sign In</h1>
 
         <Label htmlFor="email" className="text-preset-5-bold">
           Email
@@ -46,9 +27,8 @@ const SignUpForm = () => {
         <Input
           type="email"
           name="email"
-          id="email"
-          aria-describedby={state.errors?.email ? "email-error" : undefined}
           placeholder="you@example.com"
+          aria-describedby={state.errors?.email ? "email-error" : undefined}
         />
         <div
           id="email-error"
@@ -62,7 +42,6 @@ const SignUpForm = () => {
             </p>
           )}
         </div>
-
         <Label htmlFor="password" className="text-preset-5-bold">
           Password
         </Label>
@@ -74,29 +53,37 @@ const SignUpForm = () => {
           }
           placeholder="your password"
         />
-        <div
-          id="password-error"
-          aria-live="polite"
-          aria-atomic="true"
-          className="h-4"
-        >
+        <div className="h-4">
           {state.errors?.password && (
             <p className="text-preset-5 text-red-500">
               {state.errors.password[0]}
             </p>
           )}
         </div>
-        <Button type="submit" className="my-8 w-full">
-          Create Account
-        </Button>
+        <Button className="mt-8 w-full">Sign In</Button>
+        <div
+          role="alert"
+          aria-live="polite"
+          aria-atomic="true"
+          className={`my-2 flex h-10 items-center justify-center rounded-md ${
+            state?.message ? "bg-red-50" : "bg-white"
+          }`}
+        >
+          {state?.message && (
+            <p className="text-preset-4-bold text-center text-red-500">
+              {state.message}
+            </p>
+          )}
+        </div>
         <p className="text-preset-4 text-center">
-          Already have an account?{" "}
-          <Link className="text-preset-4-bold hover:underline" href="/sign-in">
-            Sign In
+          Need to create an account?{" "}
+          <Link className="text-preset-4-bold hover:underline" href="/sign-up">
+            Sign Up
           </Link>
         </p>
       </form>
     </>
   );
 };
-export default SignUpForm;
+
+export default SignInForm;
