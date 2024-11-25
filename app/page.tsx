@@ -1,85 +1,120 @@
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import {
+  PieChartIcon as ChartPieIcon,
+  WalletIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
+  CalendarIcon,
+} from "lucide-react";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    // flex h-full max-h-[920px] w-full gap-5 rounded-lg bg-clr-beige-100
-    <section className="h-full w-full">
-      {/* <div className="h-full w-full max-w-[40%] overflow-hidden rounded-lg">
-        <div className="hidden size-full flex-col justify-between bg-landing-page-pattern bg-cover bg-bottom bg-no-repeat p-10 text-white lg:flex">
-          <div>
-            <LogoLarge />
+    <div className="flex min-h-screen flex-col">
+      <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
+        <div className="container flex h-16 items-center justify-between">
+          <div className="flex items-center gap-2">
+            <WalletIcon className="h-6 w-6" />
+            <span className="text-xl font-bold">Finance</span>
           </div>
-
-          <div>
-            <h2 className="text-preset-1 mb-6">
-              Keep track of your money and save for your future
-            </h2>
-            <p className="text-preset-4">
-              Personal finance app puts you in control of your spending. Track
-              transactions, set budgets, and add to savings pots easily.
+          <div className="flex gap-4">
+            <Button variant="ghost" asChild>
+              <Link href="/sign-in">Sign In</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/sign-up">Sign Up</Link>
+            </Button>
+          </div>
+        </div>
+      </header>
+      <main className="flex-1">
+        <section className="container py-12 md:py-24">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              Take Control of Your Finances
+            </h1>
+            <p className="mx-auto mt-6 max-w-[600px] text-gray-500 md:text-xl">
+              Track expenses, manage budgets, and achieve your financial goals
+              with our comprehensive personal finance dashboard.
             </p>
           </div>
-        </div>
-      </div> */}
-      <div className="flex w-full flex-col items-center justify-center">
-        <h1 className="text-center text-5xl font-bold">
-          Take Control of Your Finances.
-        </h1>
-        <div className="2_buttons mt-10 flex gap-4">
-          <div className="flex w-[100px] items-center justify-center overflow-hidden rounded-md border-2 border-white bg-white text-center transition-all duration-150 ease-in-out hover:bg-white/85 hover:drop-shadow-2xl">
-            <Link className="h-full w-full py-2 font-bold" href="/sign-in">
-              Sign In
-            </Link>
+        </section>
+        <section id="features" className="container py-12 md:py-14">
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+              <ArrowUpIcon className="h-12 w-12 text-green-500" />
+              <h3 className="mt-4 text-xl font-bold">Income Tracking</h3>
+              <p className="mt-2 text-gray-500">
+                Monitor your income sources and analyze earning patterns over
+                time.
+              </p>
+            </Card>
+            <Card className="p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+              <ArrowDownIcon className="h-12 w-12 text-red-500" />
+              <h3 className="mt-4 text-xl font-bold">Expense Management</h3>
+              <p className="mt-2 text-gray-500">
+                Categorize and track your expenses to understand your spending
+                habits.
+              </p>
+            </Card>
+            <Card className="p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+              <ChartPieIcon className="h-12 w-12 text-blue-500" />
+              <h3 className="mt-4 text-xl font-bold">Budget Planning</h3>
+              <p className="mt-2 text-gray-500">
+                Set and manage budgets with visual insights to stay on track.
+              </p>
+            </Card>
+            <Card className="p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+              <WalletIcon className="h-12 w-12 text-purple-500" />
+              <h3 className="mt-4 text-xl font-bold">Savings Pots</h3>
+              <p className="mt-2 text-gray-500">
+                Create dedicated savings pots for your financial goals.
+              </p>
+            </Card>
+            <Card className="p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+              <CalendarIcon className="h-12 w-12 text-yellow-500" />
+              <h3 className="mt-4 text-xl font-bold">Recurring Bills</h3>
+              <p className="mt-2 text-gray-500">
+                Never miss a payment with automated bill tracking and reminders.
+              </p>
+            </Card>
+            <Card className="p-6 transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+              <ChartPieIcon className="h-12 w-12 text-teal-500" />
+              <h3 className="mt-4 text-xl font-bold">Visual Analytics</h3>
+              <p className="mt-2 text-gray-500">
+                Gain insights through intuitive charts and visual
+                representations.
+              </p>
+            </Card>
           </div>
-          <div className="flex w-[100px] items-center justify-center overflow-hidden rounded-md border-2 border-slate-950 bg-slate-950 text-center text-white transition-all duration-150 ease-in-out hover:bg-slate-950/85 hover:drop-shadow-2xl">
-            <Link className="h-full w-full py-2 font-bold" href="/sign-up">
-              Sign Up
-            </Link>
+        </section>
+        <section className="bg-muted/50 border-t">
+          <div className="container py-12 md:py-24">
+            <div className="mx-auto max-w-[800px] text-center">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Ready to take control of your finances?
+              </h2>
+              <p className="mt-4 text-gray-500 md:text-xl">
+                Join thousands of users who are already managing their money
+                smarter.
+              </p>
+              <Button size="lg" className="mt-8" asChild>
+                <Link href="/sign-up">Get Started Now</Link>
+              </Button>
+            </div>
           </div>
+        </section>
+      </main>
+      <footer className="border-t">
+        <div className="container flex flex-col gap-4 py-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-2">
+            <WalletIcon className="h-6 w-6" />
+            <span className="text-xl font-bold">Finance</span>
+          </div>
+          <p className="text-sm text-gray-500">© 2024. All rights reserved.</p>
         </div>
-      </div>
-      {/* <SignInFormRHF /> */}
-    </section>
+      </footer>
+    </div>
   );
 }
-
-// export default function Home() {
-//   return (
-//     <section className="flex h-full max-h-[920px] w-full gap-5 rounded-lg bg-clr-beige-100">
-//       <div className="h-full w-full max-w-[40%] overflow-hidden rounded-lg">
-//         <div className="hidden size-full flex-col justify-between bg-landing-page-pattern bg-cover bg-bottom bg-no-repeat p-10 text-white lg:flex">
-//           <div>
-//             <LogoLarge />
-//           </div>
-
-//           <div>
-//             <h2 className="text-preset-1 mb-6">
-//               Keep track of your money and save for your future
-//             </h2>
-//             <p className="text-preset-4">
-//               Personal finance app puts you in control of your spending. Track
-//               transactions, set budgets, and add to savings pots easily.
-//             </p>
-//           </div>
-//         </div>
-//       </div>
-//       <div className="flex w-full flex-col items-center justify-center">
-//         <h1 className="text-center text-5xl font-bold">
-//           Take Control of Your Finances.
-//         </h1>
-//         <div className="2_buttons mt-10 flex gap-4">
-//           <div className="flex w-[100px] items-center justify-center overflow-hidden rounded-md border-2 border-white bg-white text-center transition-all duration-150 ease-in-out hover:bg-white/85 hover:drop-shadow-2xl">
-//             <Link className="h-full w-full py-2 font-bold" href="/sign-in">
-//               Sign In
-//             </Link>
-//           </div>
-//           <div className="flex w-[100px] items-center justify-center overflow-hidden rounded-md border-2 border-slate-950 bg-slate-950 text-center text-white transition-all duration-150 ease-in-out hover:bg-slate-950/85 hover:drop-shadow-2xl">
-//             <Link className="h-full w-full py-2 font-bold" href="/sign-up">
-//               Sign Up
-//             </Link>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
