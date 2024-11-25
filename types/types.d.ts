@@ -30,3 +30,20 @@ type LoginState = {
   };
   message?: string;
 };
+
+type ForgotPasswordState = {
+  errors?: {
+    email?: string[];
+  };
+  message?: string;
+  status?: "success" | "error" | undefined;
+};
+
+type ResetPasswordState = {
+  errors?: {
+    password?: string[];
+    confirmPassword?: string[];
+  };
+  message?: string;
+  status?: "success" | "error" | undefined;
+};

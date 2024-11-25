@@ -1,6 +1,11 @@
 "use server";
 
-import { signupSchema, loginSchema } from "@/lib/schema";
+import {
+  signupSchema,
+  loginSchema,
+  forgotPasswordSchema,
+  resetPasswordSchema,
+} from "@/lib/schema";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -83,6 +88,77 @@ export async function signup(prevState: SignupState, formData: FormData) {
   return {
     message:
       "Account created successfully! Please check your email to verify your account.",
+    status: "success",
+  };
+}
+
+export async function forgotPassword(
+  prevState: ForgotPasswordState,
+  formData: FormData,
+): Promise<ForgotPasswordState> {
+  const supabase = await createClient();
+
+  const validatedFields = forgotPasswordSchema.safeParse({
+    email: formData.get("email"),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const { error } = await supabase.auth.resetPasswordForEmail(
+    validatedFields.data.email,
+    {
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/reset-password`,
+    },
+  );
+
+  if (error) {
+    return {
+      message: "Unable to process request. Please try again later.",
+      status: "error",
+    };
+  }
+
+  return {
+    message: "Check your email for the password reset link",
+    status: "success",
+  };
+}
+
+export async function resetPassword(
+  prevState: ResetPasswordState,
+  formData: FormData,
+): Promise<ResetPasswordState> {
+  const supabase = await createClient();
+
+  const validatedFields = resetPasswordSchema.safeParse({
+    password: formData.get("password"),
+    confirmPassword: formData.get("confirmPassword"),
+  });
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
+
+  const { error } = await supabase.auth.updateUser({
+    password: validatedFields.data.password,
+  });
+
+  if (error) {
+    return {
+      message: "Unable to reset password. Please try again later.",
+      status: "error",
+    };
+  }
+
+  return {
+    message:
+      "Password updated successfully! You can now sign in with your new password.",
     status: "success",
   };
 }

@@ -36,7 +36,7 @@ const SignUpForm = () => {
           id="name-error"
           aria-live="polite"
           aria-atomic="true"
-          className="h-4"
+          className="mt-1 h-4"
         >
           {state.errors?.name && (
             <p className="text-preset-5 text-red-500">{state.errors.name[0]}</p>
@@ -57,7 +57,7 @@ const SignUpForm = () => {
           id="email-error"
           aria-live="polite"
           aria-atomic="true"
-          className="h-4"
+          className="mt-1 h-4"
         >
           {state.errors?.email && (
             <p className="text-preset-5 text-red-500">
@@ -81,7 +81,7 @@ const SignUpForm = () => {
           id="password-error"
           aria-live="polite"
           aria-atomic="true"
-          className="h-4"
+          className="mt-1 h-4"
         >
           {state.errors?.password && (
             <p className="text-preset-5 text-red-500">

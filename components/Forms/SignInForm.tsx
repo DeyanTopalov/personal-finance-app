@@ -34,7 +34,7 @@ const SignInForm = () => {
           id="email-error"
           aria-live="polite"
           aria-atomic="true"
-          className="h-4"
+          className="mt-1 h-4"
         >
           {state.errors?.email && (
             <p className="text-preset-5 text-red-500">
@@ -53,7 +53,18 @@ const SignInForm = () => {
           }
           placeholder="your password"
         />
-        <div className="h-4">
+        <div className="mt-1">
+          <p className="text-preset-4 text-right">
+            Forgot Password?{" "}
+            <Link
+              className="text-preset-4-bold hover:underline"
+              href="/forgot-password"
+            >
+              Reset
+            </Link>
+          </p>
+        </div>
+        <div className="mt-1 h-4">
           {state.errors?.password && (
             <p className="text-preset-5 text-red-500">
               {state.errors.password[0]}
